@@ -1,7 +1,7 @@
 // NomadIQ – Gemini AI Engine
 import type { GenerateItineraryRequest, GenerateItineraryResponse, AdaptItineraryRequest, DailyItinerary, LiveAdaptation, TransportSegment, EnergyLevel } from './types';
 
-const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent';
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent';
 
 const SYSTEM_PROMPT = `You are NomadIQ, an elite AI travel planner. Generate hyper-personalized travel itineraries.
 RULES: Every activity needs real place names, GPS coords, energy_requirement (Low/Medium/High), energy_cost (0-30). Respect transport/pace/diet/accessibility preferences. Insert rest when energy>70. Keep budget realistic.
