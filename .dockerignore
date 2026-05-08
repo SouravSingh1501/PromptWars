@@ -1,0 +1,7 @@
+node_modules
+.next
+.git
+.vscode
+.env.local
+package-lock.json
+npm-debug.log

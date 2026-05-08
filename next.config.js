@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: '**' },
@@ -8,6 +9,7 @@ const nextConfig = {
   experimental: {
     serverActions: {
       bodySizeLimit: '10mb',
+
     },
   },
 };
