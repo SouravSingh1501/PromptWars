@@ -15,7 +15,16 @@ function buildPayload(system: string, user: string, imageBase64?: string) {
     parts.push({ inlineData: { mimeType: 'image/jpeg', data: imageBase64 } });
     parts.push({ text: 'Analyze this image for travel destinations and incorporate into the itinerary.' });
   }
-  return { contents: [{ parts }], generationConfig: { temperature: 0.7, topP: 0.9, topK: 40, maxOutputTokens: 8192, responseMimeType: 'application/json' } };
+  return { 
+    contents: [{ parts }], 
+    generationConfig: { 
+      temperature: 0.7, 
+      topP: 0.9, 
+      topK: 40, 
+      maxOutputTokens: 8192, 
+      response_mime_type: 'application/json' 
+    } 
+  };
 }
 
 function clean(raw: string): unknown {
