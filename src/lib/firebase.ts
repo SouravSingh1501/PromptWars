@@ -30,8 +30,13 @@ import {
 import type { NomadUser, Trip, TripAlert, UserPreferences } from './types';
 
 // ---- Firebase Init ----
+let app: FirebaseApp;
+let db: Firestore;
+let auth: Auth;
+let analytics: Analytics;
 
-const firebaseConfig = {
+// Allow runtime configuration for environments where NEXT_PUBLIC variables are not baked in
+let runtimeConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
@@ -41,14 +46,13 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-let app: FirebaseApp;
-let db: Firestore;
-let auth: Auth;
-let analytics: Analytics;
+export function setRuntimeFirebaseConfig(config: Partial<typeof runtimeConfig>) {
+  runtimeConfig = { ...runtimeConfig, ...config };
+}
 
 function getFirebaseApp(): FirebaseApp {
   if (!app) {
-    app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+    app = getApps().length === 0 ? initializeApp(runtimeConfig) : getApps()[0];
     
     // Initialize Analytics only in the browser
     if (typeof window !== 'undefined') {

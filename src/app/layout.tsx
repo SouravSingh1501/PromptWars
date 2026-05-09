@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import { AuthProvider } from '@/components/layout/AuthProvider';
 import SetupGuard from '@/components/layout/SetupGuard';
+import RuntimeConfig from '@/components/layout/RuntimeConfig';
 
 export const metadata: Metadata = {
   title: 'NomadIQ – AI Travel Operating System',
@@ -16,13 +17,25 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const firebaseConfig = {
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  };
+
+  const googleMapsKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
   return (
     <html lang="en" className="dark">
       <head>
-        {/* Placeholder for Google Maps - User should replace with their API key */}
-        <script async src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places,geometry`}></script>
+        <script async src={`https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&libraries=places,geometry`}></script>
       </head>
       <body className="antialiased">
+        <RuntimeConfig firebase={firebaseConfig} />
         <div className="ambient-bg" />
         <SetupGuard>
           <AuthProvider>
