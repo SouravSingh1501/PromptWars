@@ -32,10 +32,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.__NOMADIQ_CONFIG__ = ${JSON.stringify({
+                firebase: firebaseConfig,
+                googleMapsKey: googleMapsKey
+              })};
+            `,
+          }}
+        />
         <script async src={`https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&libraries=places,geometry`}></script>
       </head>
       <body className="antialiased">
-        <RuntimeConfig firebase={firebaseConfig} />
         <div className="ambient-bg" />
         <SetupGuard>
           <AuthProvider>

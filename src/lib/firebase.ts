@@ -36,19 +36,22 @@ let auth: Auth;
 let analytics: Analytics;
 
 // Allow runtime configuration for environments where NEXT_PUBLIC variables are not baked in
-let runtimeConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+const getInitialConfig = () => {
+  if (typeof window !== 'undefined' && (window as any).__NOMADIQ_CONFIG__?.firebase) {
+    return (window as any).__NOMADIQ_CONFIG__.firebase;
+  }
+  return {
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  };
 };
 
-export function setRuntimeFirebaseConfig(config: Partial<typeof runtimeConfig>) {
-  runtimeConfig = { ...runtimeConfig, ...config };
-}
+const runtimeConfig = getInitialConfig();
 
 function getFirebaseApp(): FirebaseApp {
   if (!app) {
