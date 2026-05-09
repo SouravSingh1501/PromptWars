@@ -1,15 +1,15 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import GlassCard from '../../components/ui/GlassCard';
-import Badge from '../../components/ui/Badge';
-import Button from '../../components/ui/Button';
-import EnergyMeter from '../../components/ui/EnergyMeter';
-import NomadGuide from '../../components/mascot/NomadGuide';
-import BentoGrid, { BentoItem } from '../../components/layout/BentoGrid';
-import MapView from '../../components/ui/MapView';
-import WeatherDisruptionHUD from '../../components/ui/WeatherDisruptionHUD';
-import type { MascotState, Activity } from '../../lib/types';
+import GlassCard from '@/components/ui/GlassCard';
+import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
+import EnergyMeter from '@/components/ui/EnergyMeter';
+import NomadGuide from '@/components/mascot/NomadGuide';
+import BentoGrid, { BentoItem } from '@/components/layout/BentoGrid';
+import MapView from '@/components/ui/MapView';
+import WeatherDisruptionHUD from '@/components/ui/WeatherDisruptionHUD';
+import type { MascotState, Activity } from '@/lib/types';
 
 // Demo data for dashboard showcase
 const demoTrip = {

@@ -1,14 +1,14 @@
 'use client';
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import GlassCard from '../../components/ui/GlassCard';
-import Button from '../../components/ui/Button';
-import Input, { Textarea } from '../../components/ui/Input';
-import Badge from '../../components/ui/Badge';
-import EnergyMeter from '../../components/ui/EnergyMeter';
-import NomadGuide from '../../components/mascot/NomadGuide';
-import { useNomadAI } from '../../hooks/useNomadAI';
-import type { PlannerFormState, TransportMode, PacePreference, GenerateItineraryResponse } from '../../lib/types';
+import GlassCard from '@/components/ui/GlassCard';
+import Button from '@/components/ui/Button';
+import Input, { Textarea } from '@/components/ui/Input';
+import Badge from '@/components/ui/Badge';
+import EnergyMeter from '@/components/ui/EnergyMeter';
+import NomadGuide from '@/components/mascot/NomadGuide';
+import { useNomadAI } from '@/hooks/useNomadAI';
+import type { PlannerFormState, TransportMode, PacePreference, GenerateItineraryResponse } from '@/lib/types';
 
 const transportOptions: { value: TransportMode; label: string; icon: string }[] = [
   { value: 'walking', label: 'Walking', icon: '🚶' },

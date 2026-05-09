@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Navbar from '../components/layout/Navbar';
-import { AuthProvider } from '../components/layout/AuthProvider';
-import SetupGuard from '../components/layout/SetupGuard';
+import Navbar from '@/components/layout/Navbar';
+import { AuthProvider } from '@/components/layout/AuthProvider';
+import SetupGuard from '@/components/layout/SetupGuard';
 
 export const metadata: Metadata = {
   title: 'NomadIQ – AI Travel Operating System',
