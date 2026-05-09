@@ -3,8 +3,9 @@ WORKDIR /app
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
-# Install dependencies
+# Install dependencies (including devDeps for build)
 COPY package.json package-lock.json ./
+# We don't set NODE_ENV=production here so devDeps are installed
 RUN npm install --legacy-peer-deps --no-audit --no-fund
 
 # Copy source
