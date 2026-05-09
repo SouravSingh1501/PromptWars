@@ -7,7 +7,8 @@ export default function SetupGuard({ children }: { children: React.ReactNode }) 
   const isConfigured = !!process.env.NEXT_PUBLIC_FIREBASE_API_KEY && 
                        process.env.NEXT_PUBLIC_FIREBASE_API_KEY !== 'your_firebase_api_key';
 
-  if (isConfigured) return <>{children}</>;
+  // Bypass guard in production as keys are managed via Cloud Run environment variables
+  if (isConfigured || process.env.NODE_ENV === 'production') return <>{children}</>;
 
   return (
     <div className="fixed inset-0 z-[10000] bg-obsidian-950 flex items-center justify-center p-4">
