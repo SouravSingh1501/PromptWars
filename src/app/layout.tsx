@@ -41,7 +41,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
-        <script async src={`https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&libraries=places,geometry`}></script>
+        {googleMapsKey && (
+          <script async src={`https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&libraries=places,geometry`}></script>
+        )}
       </head>
       <body className="antialiased">
         <div className="ambient-bg" />
