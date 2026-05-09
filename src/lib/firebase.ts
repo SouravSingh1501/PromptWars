@@ -36,7 +36,7 @@ let auth: Auth;
 let analytics: Analytics;
 
 // Allow runtime configuration for environments where NEXT_PUBLIC variables are not baked in
-const getInitialConfig = () => {
+const getRuntimeConfig = () => {
   if (typeof window !== 'undefined' && (window as any).__NOMADIQ_CONFIG__?.firebase) {
     return (window as any).__NOMADIQ_CONFIG__.firebase;
   }
@@ -51,11 +51,10 @@ const getInitialConfig = () => {
   };
 };
 
-const runtimeConfig = getInitialConfig();
-
 function getFirebaseApp(): FirebaseApp {
   if (!app) {
-    app = getApps().length === 0 ? initializeApp(runtimeConfig) : getApps()[0];
+    const config = getRuntimeConfig();
+    app = getApps().length === 0 ? initializeApp(config) : getApps()[0];
     
     // Initialize Analytics only in the browser
     if (typeof window !== 'undefined') {
