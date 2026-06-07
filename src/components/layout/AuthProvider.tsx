@@ -23,7 +23,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           <div className="flex flex-col items-center gap-4">
             <div className="w-12 h-12 border-2 border-neon-cyan/20 border-t-neon-cyan rounded-full animate-spin" />
             <p className="text-xs font-mono text-obsidian-500 uppercase tracking-widest animate-pulse">
-              Authenticating Nomad...
+              Authenticating Musafir...
             </p>
           </div>
         </div>

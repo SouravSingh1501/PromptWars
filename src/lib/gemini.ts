@@ -1,13 +1,13 @@
-// NomadIQ – Gemini AI Engine
+// Musafir – Gemini AI Engine
 import type { GenerateItineraryRequest, GenerateItineraryResponse, AdaptItineraryRequest, DailyItinerary, LiveAdaptation, TransportSegment, EnergyLevel } from './types';
 
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent';
 
-const SYSTEM_PROMPT = `You are NomadIQ, an elite AI travel planner. Generate hyper-personalized travel itineraries.
+const SYSTEM_PROMPT = `You are Musafir, an elite AI travel planner. Generate hyper-personalized travel itineraries.
 RULES: Every activity needs real place names, GPS coords, energy_requirement (Low/Medium/High), energy_cost (0-30). Respect transport/pace/diet/accessibility preferences. Insert rest when energy>70. Keep budget realistic.
 OUTPUT strict JSON: { "trip_summary": { "fatigue_score": number, "budget_status": "Healthy"|"Warning"|"Over", "total_activities": number, "destination": string }, "daily_itinerary": [{ "day": number, "date": "YYYY-MM-DD", "theme": string, "activities": [{ "id": string, "time": "HH:MM", "end_time": "HH:MM", "activity": string, "description": string, "energy_requirement": "Low"|"Medium"|"High", "energy_cost": number, "location_data": { "lat": number, "lng": number, "place_id": string, "address": string }, "category": string, "estimated_cost": number, "accessibility_score": number }], "transportation": [{ "from": string, "to": string, "mode": string, "duration": number, "distance": number, "optimization_reason": string }], "total_energy_cost": number, "total_estimated_cost": number }], "transportation_plan": [{ "mode": string, "optimization_reason": string }], "live_adaptations": [] }`;
 
-const ADAPT_PROMPT = `You are NomadIQ's Disruption Engine. Given itinerary + disruption, generate shadow plan replacing only affected activities. Keep similar energy/budget/proximity. Output JSON: { "adapted_activities": [...], "change_log": string, "reason": "weather"|"traffic"|"closure"|"safety" }`;
+const ADAPT_PROMPT = `You are Musafir's Disruption Engine. Given itinerary + disruption, generate shadow plan replacing only affected activities. Keep similar energy/budget/proximity. Output JSON: { "adapted_activities": [...], "change_log": string, "reason": "weather"|"traffic"|"closure"|"safety" }`;
 
 function buildPayload(system: string, user: string, imageBase64?: string) {
   const parts: Array<{ text?: string; inlineData?: { mimeType: string; data: string } }> = [{ text: system }, { text: user }];

@@ -3,7 +3,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { MascotState } from '@/lib/types';
 
-interface NomadGuideProps {
+interface MusafirGuideProps {
   state: MascotState;
   message: string;
   size?: 'sm' | 'md' | 'lg';
@@ -45,7 +45,7 @@ const stateConfig: Record<MascotState, { gradient: string; shadow: string; icon:
 
 const sizeMap = { sm: 48, md: 72, lg: 96 };
 
-export default function NomadGuide({ state, message, size = 'md', onClick }: NomadGuideProps) {
+export default function MusafirGuide({ state, message, size = 'md', onClick }: MusafirGuideProps) {
   const config = stateConfig[state];
   const px = sizeMap[size];
 

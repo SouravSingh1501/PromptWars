@@ -1,4 +1,4 @@
-// NomadIQ – Fatigue Logic Engine
+// Musafir – Fatigue Logic Engine
 import type { Activity, DailyItinerary, EnergyLevel } from './types';
 
 const ENERGY_COSTS: Record<EnergyLevel, number> = { Low: 8, Medium: 18, High: 28 };

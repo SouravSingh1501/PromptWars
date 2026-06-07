@@ -29,7 +29,7 @@ export default function Navbar() {
             </motion.div>
             <div>
               <span className="text-lg font-bold tracking-tight">
-                Nomad<span className="neon-text-cyan">IQ</span>
+                Musafir
               </span>
               <span className="hidden sm:block text-[9px] text-obsidian-500 uppercase tracking-[0.2em] -mt-0.5">
                 AI Travel OS

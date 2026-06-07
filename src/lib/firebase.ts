@@ -1,5 +1,5 @@
 // ============================================================
-// NomadIQ – Firebase Configuration & Helpers
+// Musafir – Firebase Configuration & Helpers
 // ============================================================
 
 import { initializeApp, getApps, type FirebaseApp } from 'firebase/app';
@@ -27,7 +27,7 @@ import {
   type Auth,
   type User,
 } from 'firebase/auth';
-import type { NomadUser, Trip, TripAlert, UserPreferences } from './types';
+import type { MusafirUser, Trip, TripAlert, UserPreferences } from './types';
 
 // ---- Firebase Init ----
 let app: FirebaseApp;
@@ -37,8 +37,8 @@ let analytics: Analytics;
 
 // Allow runtime configuration for environments where NEXT_PUBLIC variables are not baked in
 const getRuntimeConfig = () => {
-  if (typeof window !== 'undefined' && (window as any).__NOMADIQ_CONFIG__?.firebase) {
-    return (window as any).__NOMADIQ_CONFIG__.firebase;
+  if (typeof window !== 'undefined' && (window as any).__MUSAFIR_CONFIG__?.firebase) {
+    return (window as any).__MUSAFIR_CONFIG__.firebase;
   }
   return {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -111,9 +111,9 @@ export async function createOrUpdateUser(
   };
 
   if (!existing.exists()) {
-    const userData: NomadUser = {
+    const userData: MusafirUser = {
       uid: user.uid,
-      displayName: user.displayName || 'Nomad',
+      displayName: user.displayName || 'Musafir',
       email: user.email || '',
       photoURL: user.photoURL || undefined,
       preferences: { ...defaultPreferences, ...preferences },
@@ -130,7 +130,7 @@ export async function createOrUpdateUser(
 export async function getUserPreferences(uid: string): Promise<UserPreferences | null> {
   const userRef = doc(getDb(), 'users', uid);
   const snap = await getDoc(userRef);
-  return snap.exists() ? (snap.data() as NomadUser).preferences : null;
+  return snap.exists() ? (snap.data() as MusafirUser).preferences : null;
 }
 
 // ---- Trip CRUD ----

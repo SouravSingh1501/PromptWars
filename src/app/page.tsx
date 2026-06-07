@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import GlassCard from '@/components/ui/GlassCard';
 import Badge from '@/components/ui/Badge';
-import NomadGuide from '@/components/mascot/NomadGuide';
+import MusafirGuide from '@/components/mascot/MusafirGuide';
 
 const features = [
   { icon: '🧠', title: 'AI-Powered Planning', desc: 'Gemini 1.5 Pro generates hyper-personalized itineraries from text or photos.', badge: 'Gemini AI', color: 'purple' as const },
@@ -63,7 +63,7 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
           >
-            NomadIQ is your AI travel operating system. It plans, adapts, and optimizes 
+            Musafir is your AI travel operating system. It plans, adapts, and optimizes 
             your journey in real-time — so you can focus on the experience.
           </motion.p>
 
@@ -101,7 +101,7 @@ export default function HomePage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <NomadGuide state="idle" message="Hey there! I'm Nomad — your AI travel companion. Ready to explore? ✈️" size="lg" />
+            <MusafirGuide state="idle" message="Hey there! I'm Musafir — your AI travel companion. Ready to explore? ✈️" size="lg" />
           </motion.div>
         </div>
       </section>
@@ -174,7 +174,7 @@ export default function HomePage() {
                 Ready to travel <span className="neon-text-cyan">smarter</span>?
               </h2>
               <p className="text-obsidian-400 mb-8 max-w-lg mx-auto">
-                Let Nomad plan your next adventure. Upload a photo, type a vibe, or just tell us where you want to go.
+                Let Musafir plan your next adventure. Upload a photo, type a vibe, or just tell us where you want to go.
               </p>
               <Link
                 href="/planner"
@@ -192,11 +192,11 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="text-lg">🧭</span>
-            <span className="font-bold">Nomad<span className="text-neon-cyan">IQ</span></span>
+            <span className="font-bold">Musafir</span>
             <span className="text-obsidian-600 text-sm">· AI Travel OS</span>
           </div>
           <p className="text-sm text-obsidian-600">
-            © {new Date().getFullYear()} NomadIQ. Powered by Gemini & Google Maps.
+            © {new Date().getFullYear()} Musafir. Powered by Gemini & Google Maps.
           </p>
         </div>
       </footer>

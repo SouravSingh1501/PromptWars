@@ -24,7 +24,7 @@ export default function UserMenu() {
         className="flex items-center gap-2 p-1 rounded-full glass border-white/10 hover:bg-white/5 transition-all"
       >
         <img
-          src={user?.photoURL || 'https://api.dicebear.com/7.x/avataaars/svg?seed=Nomad'}
+          src={user?.photoURL || 'https://api.dicebear.com/7.x/avataaars/svg?seed=Musafir'}
           alt="User"
           className="w-8 h-8 rounded-full border border-neon-cyan/30"
         />

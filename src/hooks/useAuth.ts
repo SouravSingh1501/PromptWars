@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { User } from 'firebase/auth';
 import { onAuthChange, createOrUpdateUser } from '@/lib/firebase';
-import type { NomadUser } from '@/lib/types';
+import type { MusafirUser } from '@/lib/types';
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);

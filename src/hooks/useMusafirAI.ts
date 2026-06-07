@@ -1,9 +1,9 @@
 'use client';
-// NomadIQ – Nomad AI Hook (manages mascot state + AI interactions)
+// Musafir – Musafir AI Hook (manages mascot state + AI interactions)
 import { useState, useCallback } from 'react';
 import type { MascotState, GenerateItineraryRequest, GenerateItineraryResponse } from '@/lib/types';
 
-interface NomadAIState {
+interface MusafirAIState {
   mascotState: MascotState;
   message: string;
   isGenerating: boolean;
@@ -11,10 +11,10 @@ interface NomadAIState {
   error: string | null;
 }
 
-export function useNomadAI() {
-  const [state, setState] = useState<NomadAIState>({
+export function useMusafirAI() {
+  const [state, setState] = useState<MusafirAIState>({
     mascotState: 'idle',
-    message: "Hey! I'm Nomad. Where are we headed? ✈️",
+    message: "Hey! I'm Musafir. Where are we headed? ✈️",
     isGenerating: false,
     result: null,
     error: null,

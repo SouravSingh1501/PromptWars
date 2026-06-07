@@ -1,6 +1,4 @@
-// ============================================================
-// NomadIQ – Core Type Definitions
-// ============================================================
+// Musafir – Core Type Definitions
 
 /** Mascot visual states */
 export type MascotState = 'idle' | 'thinking' | 'alert' | 'error' | 'success';
@@ -34,7 +32,7 @@ export interface UserPreferences {
   interests: string[];
 }
 
-export interface NomadUser {
+export interface MusafirUser {
   uid: string;
   displayName: string;
   email: string;

@@ -1,4 +1,4 @@
-// NomadIQ – Google Maps Helpers
+// Musafir – Google Maps Helpers
 import type { LocationData, TransportMode } from './types';
 
 const MAPS_BASE = 'https://maps.googleapis.com/maps/api';

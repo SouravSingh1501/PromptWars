@@ -6,8 +6,8 @@ import Button from '@/components/ui/Button';
 import Input, { Textarea } from '@/components/ui/Input';
 import Badge from '@/components/ui/Badge';
 import EnergyMeter from '@/components/ui/EnergyMeter';
-import NomadGuide from '@/components/mascot/NomadGuide';
-import { useNomadAI } from '@/hooks/useNomadAI';
+import MusafirGuide from '@/components/mascot/MusafirGuide';
+import { useMusafirAI } from '@/hooks/useMusafirAI';
 import type { PlannerFormState, TransportMode, PacePreference, GenerateItineraryResponse } from '@/lib/types';
 
 const transportOptions: { value: TransportMode; label: string; icon: string }[] = [
@@ -25,7 +25,7 @@ const paceOptions: { value: PacePreference; label: string; desc: string }[] = [
 ];
 
 export default function PlannerPage() {
-  const { mascotState, message, isGenerating, result, generateTrip } = useNomadAI();
+  const { mascotState, message, isGenerating, result, generateTrip } = useMusafirAI();
   const fileRef = useRef<HTMLInputElement>(null);
 
   const [form, setForm] = useState<PlannerFormState>({
@@ -69,7 +69,7 @@ export default function PlannerPage() {
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="mb-8">
-        <NomadGuide state={mascotState} message={message} size="md" />
+        <MusafirGuide state={mascotState} message={message} size="md" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
@@ -89,7 +89,7 @@ export default function PlannerPage() {
                 <Input label="End Date" type="date" value={form.endDate}
                   onChange={e => setForm(p => ({ ...p, endDate: e.target.value }))} />
               </div>
-              <Textarea label="Tell Nomad what you want" placeholder="I love street food, hidden gems, and sunset spots..."
+              <Textarea label="Tell Musafir what you want" placeholder="I love street food, hidden gems, and sunset spots..."
                 value={form.prompt} onChange={e => setForm(p => ({ ...p, prompt: e.target.value }))} />
 
               {/* Image Upload */}
@@ -200,7 +200,7 @@ export default function PlannerPage() {
           {/* Generate Button */}
           <Button size="lg" className="w-full" loading={isGenerating} onClick={handleSubmit}
             disabled={!form.destination || !form.startDate || !form.endDate}>
-            {isGenerating ? 'Nomad is planning...' : '✨ Generate Itinerary'}
+            {isGenerating ? 'Musafir is planning...' : '✨ Generate Itinerary'}
           </Button>
         </div>
 
@@ -221,7 +221,7 @@ function PlaceholderPanel() {
       <GlassCard className="text-center py-16">
         <div className="text-5xl mb-4">🌍</div>
         <h3 className="text-lg font-semibold mb-2">Your trip awaits</h3>
-        <p className="text-sm text-obsidian-500">Fill in your details and let Nomad craft the perfect itinerary.</p>
+        <p className="text-sm text-obsidian-500">Fill in your details and let Musafir craft the perfect itinerary.</p>
       </GlassCard>
     </motion.div>
   );

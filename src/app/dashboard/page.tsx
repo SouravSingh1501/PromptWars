@@ -5,7 +5,7 @@ import GlassCard from '@/components/ui/GlassCard';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import EnergyMeter from '@/components/ui/EnergyMeter';
-import NomadGuide from '@/components/mascot/NomadGuide';
+import MusafirGuide from '@/components/mascot/MusafirGuide';
 import BentoGrid, { BentoItem } from '@/components/layout/BentoGrid';
 import MapView from '@/components/ui/MapView';
 import WeatherDisruptionHUD from '@/components/ui/WeatherDisruptionHUD';
@@ -57,7 +57,7 @@ export default function DashboardPage() {
           </div>
           <p className="text-sm text-obsidian-500">{demoTrip.destination} · {demoTrip.dates}</p>
         </div>
-        <NomadGuide state={mascotState} message={mascotMsg} size="sm" />
+        <MusafirGuide state={mascotState} message={mascotMsg} size="sm" />
       </div>
 
       {/* Bento Dashboard */}

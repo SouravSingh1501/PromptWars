@@ -16,10 +16,10 @@ export default function SetupGuard({ children }: { children: React.ReactNode }) 
       
       <GlassCard variant="neon-purple" className="max-w-md w-full text-center relative z-10" hover={false}>
         <div className="text-4xl mb-4">⚙️</div>
-        <h2 className="text-2xl font-bold mb-2">NomadIQ Setup Required</h2>
+        <h2 className="text-2xl font-bold mb-2">Musafir Setup Required</h2>
         <p className="text-sm text-obsidian-400 mb-6 leading-relaxed">
           It looks like your <code className="text-neon-cyan">.env.local</code> file is missing or contains placeholder keys. 
-          Nomad needs these to connect to its AI brain and real-time database.
+          Musafir needs these to connect to its AI brain and real-time database.
         </p>
 
         <div className="space-y-3 text-left mb-8">

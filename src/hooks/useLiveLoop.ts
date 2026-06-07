@@ -1,5 +1,5 @@
 'use client';
-// NomadIQ – Live Loop Hook (background disruption monitoring)
+// Musafir – Live Loop Hook (background disruption monitoring)
 import { useState, useEffect, useCallback, useRef } from 'react';
 import type { TripAlert, LocationData } from '@/lib/types';
 

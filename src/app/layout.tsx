@@ -5,11 +5,11 @@ import { AuthProvider } from '@/components/layout/AuthProvider';
 import SetupGuard from '@/components/layout/SetupGuard';
 
 export const metadata: Metadata = {
-  title: 'NomadIQ – AI Travel Operating System',
+  title: 'Musafir – AI Travel Operating System',
   description: 'Your hyper-personalized AI travel concierge. Plan smarter trips with real-time adaptation, fatigue-aware scheduling, and autonomous route optimization.',
-  keywords: ['travel', 'AI', 'itinerary', 'planner', 'smart travel', 'NomadIQ'],
+  keywords: ['travel', 'AI', 'itinerary', 'planner', 'smart travel', 'Musafir'],
   openGraph: {
-    title: 'NomadIQ – AI Travel Operating System',
+    title: 'Musafir – AI Travel Operating System',
     description: 'Plan trips that think. AI-powered itineraries that adapt in real-time.',
     type: 'website',
   },
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.__NOMADIQ_CONFIG__ = ${JSON.stringify({
+              window.__MUSAFIR_CONFIG__ = ${JSON.stringify({
                 firebase: firebaseConfig,
                 googleMapsKey: googleMapsKey
               })};
