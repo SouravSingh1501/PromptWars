@@ -4,6 +4,8 @@ import Navbar from '@/components/layout/Navbar';
 import { AuthProvider } from '@/components/layout/AuthProvider';
 import SetupGuard from '@/components/layout/SetupGuard';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Musafir – AI Travel Operating System',
   description: 'Your hyper-personalized AI travel concierge. Plan smarter trips with real-time adaptation, fatigue-aware scheduling, and autonomous route optimization.',
